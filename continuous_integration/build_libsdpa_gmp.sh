@@ -89,3 +89,5 @@ else
     sed -i.bak 's@GMP_DIR =.*@GMP_DIR="'"$GITHUB_WORKSPACE"'/gmp-6.3.0+dfsg"@g' sdpa-python/setupcfg.py
     sed -i.bak "s/USEGMP =.*/USEGMP = True/g" sdpa-python/setupcfg.py
 fi
+
+pip install setuptools==70.0.0

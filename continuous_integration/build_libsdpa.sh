@@ -20,7 +20,7 @@ cd sdpa-7.3.18
 # MUMPS package (even if there is no new `sdpa` release at sdpa.sourceforge.net)
 # Please check the bottom of this webpage for latest MUMPS available:
 # http://ftp.de.debian.org/debian/pool/main/m/mumps/
-sed -i.bak 's/MUMPS_VER =.*/MUMPS_VER = 5.7.1/' mumps/Makefile
+sed -i.bak 's/MUMPS_VER =.*/MUMPS_VER = 5.7.3/' mumps/Makefile
 # `wget` may not be available but `curl` almost always is
 sed -i.bak 's/wget/curl -L -O/' mumps/Makefile
 
@@ -81,3 +81,5 @@ else
     # for x86_64, repairwheel will automatically static link quadmath
     sed -i.bak "s/, 'quadmath'//" sdpa-python/setup.py
 fi
+
+pip install setuptools==70.0.0
