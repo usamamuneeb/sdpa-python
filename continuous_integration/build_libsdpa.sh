@@ -13,9 +13,9 @@ elif [[ "$RUNNER_OS" == "manylinux" ]]; then
 fi
 
 # Download and patch libsdpa
-curl -L -O https://downloads.sourceforge.net/project/sdpa/sdpa/sdpa_7.3.18.tar.gz
-tar -zxf sdpa_7.3.18.tar.gz
-cd sdpa-7.3.18
+curl -L -O https://downloads.sourceforge.net/project/sdpa/sdpa/sdpa_7.3.20.tar.gz
+tar -zxf sdpa_7.3.20.tar.gz
+cd sdpa-7.3.20
 # At every release of sdpa-python, we should attempt to link against latest
 # MUMPS package (even if there is no new `sdpa` release at sdpa.sourceforge.net)
 # Please check the bottom of this webpage for latest MUMPS available:
