@@ -70,7 +70,7 @@ fi
 if [[ "$RUNNER_OS" == "Windows" ]]; then
     original_value="${GITHUB_WORKSPACE}"
     new_value="${original_value//\\//}" # replace \ with /
-    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'$new_value'\/sdpa-7.3.18"@g' sdpa-python/setupcfg.py
+    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'$new_value'\/sdpa-7.3.20"@g' sdpa-python/setupcfg.py
     sed -i.bak "s/MINGW_LIBS =.*/MINGW_LIBS=os.path.join('D:\/','msys64','mingw64','lib')/g" sdpa-python/setupcfg.py
     sed -i.bak "s/SPOOLES_INCLUDE =.*/SPOOLES_INCLUDE=os.path.join('D:\/','msys64','mingw64','include','spooles')/g" sdpa-python/setupcfg.py
     sed -i.bak "s/SPOOLES_DIR =.*/SPOOLES_DIR=os.path.join('D:\/','msys64','mingw64','lib')/g" sdpa-python/setupcfg.py
@@ -78,7 +78,7 @@ if [[ "$RUNNER_OS" == "Windows" ]]; then
     echo "[build]" > sdpa-python/setup.cfg
     echo "compiler=mingw32" >> sdpa-python/setup.cfg
 elif [[ "$RUNNER_OS" == "macOS" ]]; then
-    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'"$GITHUB_WORKSPACE"'/sdpa-7.3.18"@g' sdpa-python/setupcfg.py
+    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'"$GITHUB_WORKSPACE"'/sdpa-7.3.20"@g' sdpa-python/setupcfg.py
     sed -i.bak 's@SPOOLES_DIR =.*@SPOOLES_DIR="'"$GITHUB_WORKSPACE"'/spooles"@g' sdpa-python/setupcfg.py
     sed -i.bak 's@SPOOLES_INCLUDE =.*@SPOOLES_INCLUDE="'"$GITHUB_WORKSPACE"'/spooles"@g' sdpa-python/setupcfg.py
     # sed -i.bak "s/GFORTRAN_LIBS =.*/GFORTRAN_LIBS='\/usr\/local\/Cellar\/gcc\/14.1.0_1\/lib\/gcc\/current'/g" sdpa-python/setupcfg.py
@@ -88,7 +88,7 @@ elif [[ "$RUNNER_OS" == "macOS" ]]; then
         sed -i.bak "s/GFORTRAN_LIBS =.*/GFORTRAN_LIBS='\/usr\/local\/opt\/gcc\/lib\/gcc\/current'/g" sdpa-python/setupcfg.py
     fi
 else
-    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'"$GITHUB_WORKSPACE"'/sdpa-7.3.18"@g' sdpa-python/setupcfg.py
+    sed -i.bak 's@SDPA_DIR =.*@SDPA_DIR="'"$GITHUB_WORKSPACE"'/sdpa-7.3.20"@g' sdpa-python/setupcfg.py
     sed -i.bak 's@SPOOLES_DIR =.*@SPOOLES_DIR="'"$GITHUB_WORKSPACE"'/spooles"@g' sdpa-python/setupcfg.py
     sed -i.bak 's@SPOOLES_INCLUDE =.*@SPOOLES_INCLUDE="'"$GITHUB_WORKSPACE"'/spooles"@g' sdpa-python/setupcfg.py
     sed -i.bak "s/BLAS_LAPACK_LIBS =.*/BLAS_LAPACK_LIBS = ['openblas']/g" sdpa-python/setupcfg.py
