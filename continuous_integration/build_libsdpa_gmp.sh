@@ -49,9 +49,11 @@ cd $GITHUB_WORKSPACE
 
 if [[ "$RUNNER_OS" == "Windows" ]]; then
     cd sdpa-multiprecision
+    sed -i.bak "s/-funroll-all-loops/-Wno-error=int-conversion -funroll-all-loops/g" spooles/patches/patch-Make.inc
     ./configure --with-system-spooles --with-spooles-includedir=/d/msys64/mingw64/include/spooles CFLAGS="-DNDEBUG" CXXFLAGS="-DNDEBUG"
 elif [[ "$RUNNER_OS" == "macOS" ]]; then
     cd sdpa-multiprecision
+    sed -i.bak "s/-funroll-all-loops/-Wno-error=int-conversion -funroll-all-loops/g" spooles/patches/patch-Make.inc
     if [[ "$RUNNER_ARCH" == "arm64" ]]; then
         sed -i.bak "s/-funroll-all-loops/-arch arm64 -funroll-all-loops/g" spooles/patches/patch-Make.inc
         ./configure --with-gmp-includedir=$GITHUB_WORKSPACE/gmp-6.3.0+dfsg/include --with-gmp-libdir=$GITHUB_WORKSPACE/gmp-6.3.0+dfsg/lib CFLAGS="-DNDEBUG -arch arm64" CXXFLAGS="-DNDEBUG -arch arm64" --host=arm64-apple-darwin
@@ -60,6 +62,7 @@ elif [[ "$RUNNER_OS" == "macOS" ]]; then
     fi
 else
     cd sdpa-multiprecision
+    sed -i.bak "s/-funroll-all-loops/-Wno-error=int-conversion -funroll-all-loops/g" spooles/patches/patch-Make.inc
     ./configure --with-gmp-includedir=$GITHUB_WORKSPACE/gmp-6.3.0+dfsg/include --with-gmp-libdir=$GITHUB_WORKSPACE/gmp-6.3.0+dfsg/lib CFLAGS="-DNDEBUG" CXXFLAGS="-DNDEBUG"
 fi
 
