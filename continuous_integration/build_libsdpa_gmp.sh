@@ -1,5 +1,8 @@
 #!/bin/bash
 
+PS4='$ '
+set -x
+
 # if [[ "$RUNNER_OS" == "RedHat" ]]; then
 #     yum update -y
 #     yum install -y epel-release
